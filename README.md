@@ -1,4 +1,4 @@
-# 🇺🇸 US President Lookup App
+# US President Lookup App
 
 A sleek, containerized web application built with **Flask** and designed for **Google Cloud Run**. 
 This app demonstrates how to build, containerize, and deploy a Python application that allows users to look up US Presidents by their order of office.
