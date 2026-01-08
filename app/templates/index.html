@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US President Lookup</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+        h1 {
+            color: #1a73e8;
+            margin-bottom: 1.5rem;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box; /* Ensures padding doesn't affect width */
+            font-size: 16px;
+        }
+        input[type="number"]:focus {
+             border-color: #1a73e8;
+             outline: none;
+        }
+        button {
+            background-color: #1a73e8;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #1557b0;
+        }
+        .result {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #202124;
+            padding: 10px;
+            background-color: #e8f0fe;
+            border-radius: 6px;
+        }
+        .error {
+            margin-top: 1.5rem;
+            color: #d93025;
+            background-color: #fce8e6;
+            padding: 10px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🇺🇸 President Lookup</h1>
+        <form method="POST">
+            <input type="number" name="number" placeholder="Enter number (1-47)" min="1" max="47" required value="{{ number if number else '' }}">
+            <button type="submit">Lookup</button>
+        </form>
+
+        {% if president_name %}
+            <div class="result">
+                #{{ number }}: {{ president_name }}
+            </div>
+        {% endif %}
+
+        {% if error_message %}
+            <div class="error">
+                {{ error_message }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
